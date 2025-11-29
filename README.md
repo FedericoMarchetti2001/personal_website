@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# personal_website
-=======
 # Federico Marchetti - Personal Website
 
 A modern, vibecoded personal website built with Next.js 14, React Three Fiber, Chakra UI, and Contentlayer.
@@ -227,4 +224,3 @@ Contributions are welcome! Please open an issue or PR.
 ---
 
 Built with ❤️ using Next.js, React Three Fiber, and Chakra UI
->>>>>>> mainù
