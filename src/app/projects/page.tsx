@@ -53,13 +53,11 @@ export default function ProjectsPage() {
               spacing={8}
             >
               {projects.map((project, index) => (
-                <MotionBox
-                  key={project.slug}
-                  as={Link}
-                  href={project.url}
-                  variants={staggerItem}
-                  custom={index * 0.1}
-                  bg="whiteAlpha.50"
+                <Link key={project.slug} href={project.url} style={{ textDecoration: 'none' }}>
+                  <MotionBox
+                    variants={staggerItem}
+                    custom={index * 0.1}
+                    bg="whiteAlpha.50"
                     borderRadius="xl"
                     borderWidth="1px"
                     borderColor="whiteAlpha.100"
@@ -151,6 +149,7 @@ export default function ProjectsPage() {
                       </HStack>
                     </VStack>
                   </MotionBox>
+                </Link>
               ))}
             </SimpleGrid>
           </MotionVStack>
