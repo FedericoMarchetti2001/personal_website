@@ -10,7 +10,7 @@ import { useReducedMotion } from './MotionManager';
  * It conditionally renders the full 3D scene or a static element
  * based on the user's motion preference.
  */
-export function R3FCanvas() {
+export default function R3FCanvas() {
   const prefersReducedMotion = useReducedMotion();
 
   return (

@@ -1,0 +1,124 @@
+{
+  "name": "Federico Marchetti",
+  "title": "Full-Stack Developer",
+  "summary": "Experienced Full-Stack Developer specializing in building modern web applications with React, .NET, and Azure cloud services. Passionate about creating scalable, performant solutions with clean architecture and excellent user experiences. Strong focus on TypeScript, serverless architectures, and DevOps practices.",
+  "experience": [
+    {
+      "title": "Senior Full-Stack Developer",
+      "company": "Tech Solutions Inc.",
+      "location": "Remote",
+      "period": "2022 - Present",
+      "description": [
+        "Architected and developed enterprise-scale web applications using React, TypeScript, and .NET Core",
+        "Implemented CI/CD pipelines using Azure DevOps, reducing deployment time by 60%",
+        "Led migration of monolithic applications to microservices architecture on Azure",
+        "Mentored junior developers and conducted code reviews to maintain high code quality standards"
+      ],
+      "technologies": ["React", "TypeScript", "Next.js", ".NET Core", "Azure", "Docker", "Kubernetes"]
+    },
+    {
+      "title": "Full-Stack Developer",
+      "company": "Digital Innovations Ltd.",
+      "location": "Milan, Italy",
+      "period": "2020 - 2022",
+      "description": [
+        "Developed responsive web applications using React and ASP.NET Core",
+        "Integrated third-party APIs and payment gateways for e-commerce platforms",
+        "Optimized database queries and implemented caching strategies, improving performance by 40%",
+        "Collaborated with UX designers to implement pixel-perfect interfaces"
+      ],
+      "technologies": ["React", "JavaScript", "ASP.NET Core", "SQL Server", "Azure", "REST APIs"]
+    },
+    {
+      "title": "Junior Developer",
+      "company": "StartupHub",
+      "location": "Rome, Italy",
+      "period": "2018 - 2020",
+      "description": [
+        "Built and maintained web applications using modern JavaScript frameworks",
+        "Participated in agile development processes and daily stand-ups",
+        "Wrote unit and integration tests to ensure code reliability",
+        "Contributed to open-source projects and internal tool development"
+      ],
+      "technologies": ["JavaScript", "React", "Node.js", "MongoDB", "Git"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "institution": "Politecnico di Milano",
+      "location": "Milan, Italy",
+      "period": "2016 - 2018",
+      "description": "Specialized in Software Engineering and Cloud Computing. Thesis on microservices architecture patterns."
+    },
+    {
+      "degree": "Bachelor of Science in Computer Engineering",
+      "institution": "Università degli Studi di Roma",
+      "location": "Rome, Italy",
+      "period": "2013 - 2016",
+      "description": "Foundation in computer science fundamentals, algorithms, and software development."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Chakra UI", "Framer Motion", "Redux", "React Query"]
+    },
+    {
+      "category": "Backend",
+      "items": [".NET Core", "ASP.NET Core", "C#", "Node.js", "Express", "REST APIs", "GraphQL", "Entity Framework", "Dapper"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["Azure", "Azure Functions", "Azure App Service", "Azure SQL", "Docker", "Kubernetes", "CI/CD", "Azure DevOps", "GitHub Actions", "Terraform"]
+    },
+    {
+      "category": "Databases",
+      "items": ["SQL Server", "PostgreSQL", "MongoDB", "Redis", "Cosmos DB", "Azure SQL"]
+    },
+    {
+      "category": "Tools & Practices",
+      "items": ["Git", "Visual Studio", "VS Code", "Agile/Scrum", "TDD", "Clean Architecture", "SOLID Principles", "Microservices"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Developer Associate",
+      "issuer": "Microsoft",
+      "date": "2023",
+      "credentialUrl": "https://learn.microsoft.com/en-us/certifications/azure-developer/"
+    },
+    {
+      "name": "Microsoft Certified: Azure Solutions Architect Expert",
+      "issuer": "Microsoft",
+      "date": "2022",
+      "credentialUrl": "https://learn.microsoft.com/en-us/certifications/azure-solutions-architect/"
+    },
+    {
+      "name": "AWS Certified Solutions Architect - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "2021",
+      "credentialUrl": "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Italian",
+      "proficiency": "Native"
+    },
+    {
+      "name": "English",
+      "proficiency": "Fluent (C1)"
+    },
+    {
+      "name": "Spanish",
+      "proficiency": "Intermediate (B1)"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/federicomarchetti",
+    "linkedin": "https://linkedin.com/in/federicomarchetti",
+    "email": "federico.marchetti@example.com",
+    "website": "https://federicomarchetti.dev"
+  }
+}

@@ -1,3 +1,4 @@
+/// <reference path="../../types/r3f-declarations.d.ts" />
 'use client';
 
 import React, { useRef, useMemo, Suspense } from 'react';
@@ -22,8 +23,6 @@ const WaveShaderMaterial = shaderMaterial(
   `
     uniform float uTime;
     uniform vec2 uMouse;
-    attribute vec3 position;
-    attribute vec2 uv;
     varying vec2 vUv;
     varying float vZ;
 
@@ -77,6 +76,14 @@ const WaveShaderMaterial = shaderMaterial(
 );
 extend({ WaveShaderMaterial });
 
+// TypeScript declaration for the custom shader material
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      waveShaderMaterial: any;
+    }
+  }
+}
 
 // 2. The Interactive Mesh Component
 function WaveMesh() {
@@ -125,6 +132,7 @@ function WaveMesh() {
         The material is dynamically named 'waveShaderMaterial' 
         due to R3F's extend function convention. 
       */}
+      {/* @ts-ignore - R3F extended material */}
       <waveShaderMaterial ref={materialRef} />
     </mesh>
   );

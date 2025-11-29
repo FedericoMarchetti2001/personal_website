@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${InterFont.variable} ${SpaceGroteskFont.variable} ${JetBrainsMonoFont.variable}`}>
+    <html lang="en" className={`${InterFont.variable} ${SpaceGroteskFont.variable} ${JetBrainsMonoFont.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning={true}>
         <ChakraProvider>
           {/* Main content box. Tailwind's body/html classes in globals.css handle font setting and full height. */}
