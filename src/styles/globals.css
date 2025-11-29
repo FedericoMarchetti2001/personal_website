@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply fonts globally */
+html {
+  /* Set base font to Inter for body text */
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* Set heading font to Space Grotesk */
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+code {
+  /* Set code font to JetBrains Mono */
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom styles for the dark background based on AI_CONTEXT.md */
+body {
+  /* The bg-dark class uses #0B0E14, but we need to ensure the body defaults to system colors or Chakra's color mode manages it.
+     For Tailwind and Chakra to cooperate well, we typically let Chakra manage the background.
+     However, we set a default font smoothing for aesthetics. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure the root element covers the viewport for the full-screen hero */
+#__next {
+  min-height: 100vh;
+}
