@@ -163,9 +163,12 @@ function WaveMesh() {
     const primaryDark = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Color"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$theme$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["theme"].colors.brand.primary[300]), []);
     const accentDark = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Color"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$theme$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["theme"].colors.brand.accent[600]), []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$f8cd670d$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__D__as__useFrame$3e$__["useFrame"])(({ clock, camera })=>{
-        if (materialRef.current) {
+        if (materialRef.current && materialRef.current.uMouse) {
             materialRef.current.uTime.value = clock.getElapsedTime();
-            materialRef.current.uMouse.value = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Vector2"](x * 0.5, y * 0.5);
+            // Safely update the Vector2 uniform
+            if (materialRef.current.uMouse.value && materialRef.current.uMouse.value.set) {
+                materialRef.current.uMouse.value.set(x * 0.5, y * 0.5);
+            }
             materialRef.current.uDarkMode.value = colorMode === 'dark' ? 1 : 0;
             // Update shader colors based on theme
             if (colorMode === 'dark') {
@@ -205,20 +208,20 @@ function WaveMesh() {
                 ]
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 130,
+                lineNumber: 135,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("waveShaderMaterial", {
                 ref: materialRef
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 136,
+                lineNumber: 141,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/three/Scene.tsx",
-        lineNumber: 128,
+        lineNumber: 133,
         columnNumber: 5
     }, this);
 }
@@ -240,7 +243,7 @@ function Scene() {
                 intensity: 0.5
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 161,
+                lineNumber: 166,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("pointLight", {
@@ -255,7 +258,7 @@ function Scene() {
                 color: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$theme$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["theme"].colors.neon.indigo
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 164,
+                lineNumber: 169,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("pointLight", {
@@ -269,19 +272,19 @@ function Scene() {
                 color: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$theme$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["theme"].colors.neon.pink
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 171,
+                lineNumber: 176,
                 columnNumber: 7
             }, this),
             !prefersReducedMotion && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Suspense"], {
                 fallback: null,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(WaveMesh, {}, void 0, false, {
                     fileName: "[project]/src/components/three/Scene.tsx",
-                    lineNumber: 184,
+                    lineNumber: 189,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 183,
+                lineNumber: 188,
                 columnNumber: 9
             }, this),
             prefersReducedMotion && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -305,27 +308,27 @@ function Scene() {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/src/components/three/Scene.tsx",
-                        lineNumber: 191,
+                        lineNumber: 196,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$theme$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["theme"].colors.brand.primary[500]
                     }, void 0, false, {
                         fileName: "[project]/src/components/three/Scene.tsx",
-                        lineNumber: 192,
+                        lineNumber: 197,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 190,
+                lineNumber: 195,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$Environment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Environment"], {
                 preset: "city"
             }, void 0, false, {
                 fileName: "[project]/src/components/three/Scene.tsx",
-                lineNumber: 197,
+                lineNumber: 202,
                 columnNumber: 7
             }, this)
         ]
@@ -747,54 +750,38 @@ function Hero() {
                                 flexWrap: "wrap",
                                 justify: "center",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$react$2f$dist$2f$esm$2f$button$2f$button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        as: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"],
                                         href: "/projects",
-                                        passHref: true,
-                                        legacyBehavior: true,
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$react$2f$dist$2f$esm$2f$button$2f$button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                            as: "a",
-                                            size: "lg",
-                                            variant: "primary",
-                                            fontSize: "md",
-                                            px: 8,
-                                            _hover: {
-                                                transform: 'translateY(-2px)',
-                                                boxShadow: colorMode === 'dark' ? '0 0 20px rgba(165, 180, 252, 0.6)' : '0 4px 12px rgba(99, 102, 241, 0.4)'
-                                            },
-                                            children: "View Projects"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/sections/Hero.tsx",
-                                            lineNumber: 100,
-                                            columnNumber: 17
-                                        }, this)
+                                        size: "lg",
+                                        variant: "primary",
+                                        fontSize: "md",
+                                        px: 8,
+                                        _hover: {
+                                            transform: 'translateY(-2px)',
+                                            boxShadow: colorMode === 'dark' ? '0 0 20px rgba(165, 180, 252, 0.6)' : '0 4px 12px rgba(99, 102, 241, 0.4)'
+                                        },
+                                        children: "View Projects"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Hero.tsx",
                                         lineNumber: 99,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$react$2f$dist$2f$esm$2f$button$2f$button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        as: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"],
                                         href: "/blog",
-                                        passHref: true,
-                                        legacyBehavior: true,
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$react$2f$dist$2f$esm$2f$button$2f$button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                            as: "a",
-                                            size: "lg",
-                                            variant: "accent",
-                                            fontSize: "md",
-                                            px: 8,
-                                            _hover: {
-                                                transform: 'translateY(-2px)',
-                                                boxShadow: colorMode === 'dark' ? '0 0 20px rgba(244, 114, 182, 0.6)' : '0 4px 12px rgba(244, 114, 182, 0.4)'
-                                            },
-                                            children: "Read Blog"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/sections/Hero.tsx",
-                                            lineNumber: 119,
-                                            columnNumber: 17
-                                        }, this)
+                                        size: "lg",
+                                        variant: "accent",
+                                        fontSize: "md",
+                                        px: 8,
+                                        _hover: {
+                                            transform: 'translateY(-2px)',
+                                            boxShadow: colorMode === 'dark' ? '0 0 20px rgba(244, 114, 182, 0.6)' : '0 4px 12px rgba(244, 114, 182, 0.4)'
+                                        },
+                                        children: "Read Blog"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Hero.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$react$2f$dist$2f$esm$2f$button$2f$button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -807,7 +794,7 @@ function Hero() {
                                         px: 8,
                                         leftIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$chakra$2d$ui$2f$icons$2f$dist$2f$esm$2f$Download$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DownloadIcon"], {}, void 0, false, {
                                             fileName: "[project]/src/components/sections/Hero.tsx",
-                                            lineNumber: 145,
+                                            lineNumber: 143,
                                             columnNumber: 27
                                         }, void 0),
                                         borderWidth: "2px",
@@ -820,7 +807,7 @@ function Hero() {
                                         children: "Download Resume"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Hero.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -864,19 +851,19 @@ function Hero() {
                                         bg: colorMode === 'dark' ? 'gray.600' : 'gray.400'
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/Hero.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 179,
                                         columnNumber: 15
                                     }, this),
                                     "Scroll to explore"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/sections/Hero.tsx",
-                                lineNumber: 173,
+                                lineNumber: 171,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/sections/Hero.tsx",
-                            lineNumber: 161,
+                            lineNumber: 159,
                             columnNumber: 11
                         }, this)
                     ]

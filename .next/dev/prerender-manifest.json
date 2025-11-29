@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/blog/first-post":{},"/blog/nextjs-14-features":{},"/blog/azure-functions-dotnet":{},"/blog/react-performance":{}},"dynamicRoutes":{"/blog/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/blog/[slug]","routeRegex":"^\\/blog\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"bf14dcbf35b06d65fa56e6e0c4109b99","previewModeSigningKey":"f4e952df978fd6f487c688992a85404898569e364b40b7f3ce303192534175d2","previewModeEncryptionKey":"be5d16876d9de29f4b80c848f62909560d8de49c35658599c989a2ff1bbd6a5b"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "3548a0888e1cc255a14b5a5a093d23d4",
+    "previewModeSigningKey": "bd4d9fe9b15e904df1a26f5800cf4a9dbbbd082a3b74f7c1a294cf1f031a061a",
+    "previewModeEncryptionKey": "8bcc70b26f864a6556a9a6f993cbf23b01f2de7b2705e199a48fc0b2f31187dc"
+  }
+}
