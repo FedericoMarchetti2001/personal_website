@@ -1,3 +1,9 @@
+Run dev server: npm run dev
+Add images: Place project cover images (1200x600px) in /public/assets/projects/
+Add resume PDF: Place at /public/Federico_Marchetti_Resume.pdf
+Update personal info: Edit resume.json and social links in Footer/Navbar
+Deploy to Vercel: Push to GitHub and import to Vercel
+
 # Federico Marchetti - Personal Website
 
 A modern, vibecoded personal website built with Next.js 14, React Three Fiber, Chakra UI, and Contentlayer.

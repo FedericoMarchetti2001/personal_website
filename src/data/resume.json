@@ -1,124 +1,160 @@
 {
   "name": "Federico Marchetti",
-  "title": "Full-Stack Developer",
-  "summary": "Experienced Full-Stack Developer specializing in building modern web applications with React, .NET, and Azure cloud services. Passionate about creating scalable, performant solutions with clean architecture and excellent user experiences. Strong focus on TypeScript, serverless architectures, and DevOps practices.",
+  "title": "Full-Stack Developer (React, .NET, Azure)",
+  "summary": "Full-Stack Developer specializing in React, .NET, and Azure cloud technologies. Experienced in building scalable web applications, AI-powered solutions, and enterprise-level systems. Passionate about clean code, modern development practices, and continuous learning.",
   "experience": [
     {
-      "title": "Senior Full-Stack Developer",
-      "company": "Tech Solutions Inc.",
-      "location": "Remote",
-      "period": "2022 - Present",
+      "title": "Full Stack Developer",
+      "company": "2+ Consulting",
+      "location": "Turin, Italy",
+      "period": "Oct 2023 - Present",
       "description": [
-        "Architected and developed enterprise-scale web applications using React, TypeScript, and .NET Core",
-        "Implemented CI/CD pipelines using Azure DevOps, reducing deployment time by 60%",
-        "Led migration of monolithic applications to microservices architecture on Azure",
-        "Mentored junior developers and conducted code reviews to maintain high code quality standards"
+        "Developed AI-powered web scraping solution for Reply S.p.A, automating extraction of competitor financial data across thousands of webpages with varying structures and languages",
+        "Designed and implemented AI-Invoice Checker system using OpenAI Vision/Document Intelligence to automatically generate structured CSV reports from stored data",
+        "Implemented large-scale automation features to manage 30,000+ SharePoint and Teams sites, including daily deletion, editing, and monitoring via WebJobs and Azure Service Bus",
+        "Managed front-end development for Teams app enabling a major Italian company to manage tens of thousands of confidential research projects and documents efficiently"
       ],
-      "technologies": ["React", "TypeScript", "Next.js", ".NET Core", "Azure", "Docker", "Kubernetes"]
+      "technologies": [
+        "React",
+        "TypeScript",
+        ".NET 6/8",
+        "Azure",
+        "SharePoint",
+        "Microsoft Teams",
+        "OpenAI",
+        "Azure AI"
+      ]
     },
     {
-      "title": "Full-Stack Developer",
-      "company": "Digital Innovations Ltd.",
-      "location": "Milan, Italy",
-      "period": "2020 - 2022",
+      "title": "Back End Developer - Internship",
+      "company": "2+ Consulting",
+      "location": "Turin, Italy",
+      "period": "Feb 2023 - Oct 2023",
       "description": [
-        "Developed responsive web applications using React and ASP.NET Core",
-        "Integrated third-party APIs and payment gateways for e-commerce platforms",
-        "Optimized database queries and implemented caching strategies, improving performance by 40%",
-        "Collaborated with UX designers to implement pixel-perfect interfaces"
+        "Developed backend systems using .NET and C#",
+        "Worked with Entity Framework and SQL Server",
+        "Participated in agile development processes",
+        "Contributed to cloud-based solutions on Azure"
       ],
-      "technologies": ["React", "JavaScript", "ASP.NET Core", "SQL Server", "Azure", "REST APIs"]
-    },
-    {
-      "title": "Junior Developer",
-      "company": "StartupHub",
-      "location": "Rome, Italy",
-      "period": "2018 - 2020",
-      "description": [
-        "Built and maintained web applications using modern JavaScript frameworks",
-        "Participated in agile development processes and daily stand-ups",
-        "Wrote unit and integration tests to ensure code reliability",
-        "Contributed to open-source projects and internal tool development"
-      ],
-      "technologies": ["JavaScript", "React", "Node.js", "MongoDB", "Git"]
+      "technologies": [
+        ".NET",
+        "C#",
+        "SQL Server",
+        "Entity Framework",
+        "Azure"
+      ]
     }
   ],
   "education": [
     {
-      "degree": "Master of Science in Computer Science",
-      "institution": "Politecnico di Milano",
-      "location": "Milan, Italy",
-      "period": "2016 - 2018",
-      "description": "Specialized in Software Engineering and Cloud Computing. Thesis on microservices architecture patterns."
+      "degree": "Back End Developer Diploma",
+      "institution": "ITS ICT Torino (Vocational School)",
+      "location": "Turin, Italy",
+      "period": "Sep 2021 - Sep 2023",
+      "description": "Graduated"
     },
     {
-      "degree": "Bachelor of Science in Computer Engineering",
-      "institution": "Università degli Studi di Roma",
-      "location": "Rome, Italy",
-      "period": "2013 - 2016",
-      "description": "Foundation in computer science fundamentals, algorithms, and software development."
+      "degree": "Biomedical Engineering",
+      "institution": "Politecnico di Torino",
+      "location": "Turin, Italy",
+      "period": "Sep 2019 - Sep 2021",
+      "description": "Did not graduate"
+    },
+    {
+      "degree": "Secondary School Diploma in IT",
+      "institution": "IIS Olivetti Ivrea",
+      "location": "Ivrea, Italy",
+      "period": "2014 - 2019"
     }
   ],
   "skills": [
     {
-      "category": "Frontend",
-      "items": ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Chakra UI", "Framer Motion", "Redux", "React Query"]
+      "category": "Programming Languages & Frameworks",
+      "items": [
+        "C#",
+        ".NET 6/8",
+        "Entity Framework",
+        "SQL Server",
+        "React",
+        "TypeScript",
+        "Redux",
+        "SPFx",
+        "Fluent UI"
+      ]
     },
     {
-      "category": "Backend",
-      "items": [".NET Core", "ASP.NET Core", "C#", "Node.js", "Express", "REST APIs", "GraphQL", "Entity Framework", "Dapper"]
+      "category": "Cloud & Integration (Azure)",
+      "items": [
+        "Logic Apps",
+        "Functions",
+        "Service Bus",
+        "Storage (Queues/Blobs)",
+        "Key Vault",
+        "Container Apps",
+        "WebJobs",
+        "Azure DevOps",
+        "Docker",
+        "Git"
+      ]
     },
     {
-      "category": "Cloud & DevOps",
-      "items": ["Azure", "Azure Functions", "Azure App Service", "Azure SQL", "Docker", "Kubernetes", "CI/CD", "Azure DevOps", "GitHub Actions", "Terraform"]
+      "category": "M365 & Power Platform",
+      "items": [
+        "SharePoint",
+        "Microsoft Teams",
+        "Power Automate"
+      ]
     },
     {
-      "category": "Databases",
-      "items": ["SQL Server", "PostgreSQL", "MongoDB", "Redis", "Cosmos DB", "Azure SQL"]
-    },
-    {
-      "category": "Tools & Practices",
-      "items": ["Git", "Visual Studio", "VS Code", "Agile/Scrum", "TDD", "Clean Architecture", "SOLID Principles", "Microservices"]
+      "category": "AI & Automation",
+      "items": [
+        "OpenAI",
+        "Azure AI Search",
+        "Azure Document Intelligence",
+        "Prompt Engineering",
+        "Puppeteer",
+        "GitHub Copilot"
+      ]
     }
   ],
   "certifications": [
     {
-      "name": "Microsoft Certified: Azure Developer Associate",
+      "name": "Azure Developer Associate (AZ-204)",
       "issuer": "Microsoft",
-      "date": "2023",
-      "credentialUrl": "https://learn.microsoft.com/en-us/certifications/azure-developer/"
+      "date": "June 8, 2025",
+      "credentialId": "D8FE92584EE1CBC4",
+      "credentialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/FedericoMarchetti/D8FE92584EE1CBC4"
     },
     {
-      "name": "Microsoft Certified: Azure Solutions Architect Expert",
+      "name": "Microsoft Azure Fundamentals (AZ-900)",
       "issuer": "Microsoft",
-      "date": "2022",
-      "credentialUrl": "https://learn.microsoft.com/en-us/certifications/azure-solutions-architect/"
-    },
-    {
-      "name": "AWS Certified Solutions Architect - Associate",
-      "issuer": "Amazon Web Services",
-      "date": "2021",
-      "credentialUrl": "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+      "date": "Mar 23, 2025",
+      "credentialId": "A87405F9040EB45D",
+      "credentialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/FedericoMarchetti/A87405F9040EB45D"
     }
   ],
   "languages": [
     {
       "name": "Italian",
-      "proficiency": "Native"
+      "proficiency": "Native speaker"
     },
     {
       "name": "English",
-      "proficiency": "Fluent (C1)"
+      "proficiency": "Fluent (C2 - self evaluated, IELTS Academic C1 achieved in 2018)"
     },
     {
-      "name": "Spanish",
-      "proficiency": "Intermediate (B1)"
+      "name": "German",
+      "proficiency": "Advanced (Goethe C1 level achieved in April 2025)"
+    },
+    {
+      "name": "French",
+      "proficiency": "Advanced (Heritage/Native speaker)"
     }
   ],
   "links": {
     "github": "https://github.com/federicomarchetti",
-    "linkedin": "https://linkedin.com/in/federicomarchetti",
-    "email": "federico.marchetti@example.com",
+    "linkedin": "https://www.linkedin.com/in/federico-marchetti-dev/",
+    "email": "20FedericoMarchetti01@gmail.com",
     "website": "https://federicomarchetti.dev"
   }
 }

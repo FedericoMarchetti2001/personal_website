@@ -69,7 +69,7 @@ export default function Hero() {
             variants={staggerItem}
           >
             Federico Marchetti
-          </MotionHeading>
+          </MotionHeading> 
 
           {/* Subtitle */}
           <MotionText
