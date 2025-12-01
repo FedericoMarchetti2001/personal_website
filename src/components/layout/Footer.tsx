@@ -8,7 +8,7 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: FaGithub,
-    href: 'https://github.com/federicomarchetti',
+    href: 'https://github.com/FedericoMarchetti2001',
   },
   {
     name: 'LinkedIn',

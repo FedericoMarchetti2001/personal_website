@@ -4,4 +4,4 @@ import projects__vibecodeSiteMdx from './projects__vibecode-site.mdx.json' asser
 import projects__ecommercePlatformMdx from './projects__ecommerce-platform.mdx.json' assert { type: 'json' }
 import projects__collaborationToolMdx from './projects__collaboration-tool.mdx.json' assert { type: 'json' }
 
-export const allProjects = [projects__vibecodeSiteMdx, projects__ecommercePlatformMdx, projects__collaborationToolMdx]
+export const allProjects = [projects__vibecodeSiteMdx, projects__ecommercePlatformMdx, projects__collaborationToolMdx, projects_jgothValidatorMdx]

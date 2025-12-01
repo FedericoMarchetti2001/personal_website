@@ -46,7 +46,7 @@ A modern, vibecoded personal website built with Next.js 14, React Three Fiber, C
 
 ```bash
 # Clone the repository
-git clone https://github.com/federicomarchetti/personal-website.git
+git clone https://github.com/FedericoMarchetti2001/personal-website.git
 cd personal-website
 
 # Install dependencies
@@ -223,7 +223,7 @@ Contributions are welcome! Please open an issue or PR.
 ## 📧 Contact
 
 - **Website**: [federicomarchetti.dev](https://federicomarchetti.dev)
-- **GitHub**: [@federicomarchetti](https://github.com/federicomarchetti)
+- **GitHub**: [@federicomarchetti](https://github.com/FedericoMarchetti2001)
 - **LinkedIn**: [Federico Marchetti](https://linkedin.com/in/federicomarchetti)
 - **Email**: federico.marchetti@example.com
 
