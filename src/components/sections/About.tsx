@@ -12,22 +12,22 @@ const skills = [
   {
     icon: FaCode,
     title: 'Frontend Development',
-    description: 'Building responsive, interactive UIs with React, Next.js, TypeScript, and modern CSS frameworks.',
+    description: 'Building responsive, interactive UIs with React, Next.js, TypeScript, and modern CSS frameworks to create engaging user experiences.',
   },
   {
     icon: FaCloud,
     title: 'Backend & Cloud',
-    description: 'Developing scalable APIs with .NET Core and deploying to Azure cloud infrastructure.',
+    description: 'Developing scalable APIs with .NET Core and deploying to Azure cloud infrastructure to ensure reliability.',
   },
   {
     icon: FaPalette,
-    title: 'UI/UX Design',
-    description: 'Creating beautiful, accessible interfaces with attention to detail and user experience.',
+    title: 'AI Integration',
+    description: 'Integrating artificial intelligence to cut costs in tedious tasks and improve efficiency.',
   },
   {
     icon: FaRocket,
-    title: 'Performance',
-    description: 'Optimizing applications for speed, SEO, and scalability with best practices.',
+    title: 'Web Scraping & Data Automation',
+    description: 'Automating data extraction from websites and processing to give you insights over your competition.',
   },
 ];
 
@@ -60,7 +60,7 @@ export default function About() {
               color={colorMode === 'dark' ? 'gray.400' : 'gray.600'}
               maxW="2xl"
             >
-              Crafting digital experiences with modern technologies and best practices
+              Crafting digital experiences with modern tools and approaches to deliver efficient solutions.
             </Text>
           </MotionVStack>
 
