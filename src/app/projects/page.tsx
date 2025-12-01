@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Badge, Image, Icon, Link as ChakraLink } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Badge, Image, Icon, Link as ChakraLink, useColorMode } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -14,6 +14,7 @@ const MotionVStack = motion(VStack);
 
 export default function ProjectsPage() {
   const projects = allSortedProjects();
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -47,11 +48,31 @@ export default function ProjectsPage() {
               </Text>
             </MotionVStack>
 
-            {/* Projects Grid */}
-            <SimpleGrid
-              columns={{ base: 1, md: 2, lg: 3 }}
-              spacing={8}
-            >
+            {/* Empty State or Projects Grid */}
+            {projects.length === 0 ? (
+              <MotionBox
+                variants={staggerItem}
+                p={12}
+                textAlign="center"
+                bg={colorMode === 'dark' ? 'whiteAlpha.50' : 'white'}
+                borderRadius="xl"
+                borderWidth="1px"
+                borderColor={colorMode === 'dark' ? 'whiteAlpha.100' : 'blackAlpha.100'}
+              >
+                <VStack spacing={4}>
+                  <Heading as="h2" size="lg" color="gray.500">
+                    Projects Coming Soon
+                  </Heading>
+                  <Text color="gray.400" maxW="md">
+                    I'm currently preparing detailed case studies of my work. Check back soon to see my latest projects in React, .NET, Azure, and AI integration!
+                  </Text>
+                </VStack>
+              </MotionBox>
+            ) : (
+              <SimpleGrid
+                columns={{ base: 1, md: 2, lg: 3 }}
+                spacing={8}
+              >
               {projects.map((project, index) => (
                 <Link key={project.slug} href={project.url} style={{ textDecoration: 'none' }}>
                   <MotionBox
@@ -149,9 +170,10 @@ export default function ProjectsPage() {
                       </HStack>
                     </VStack>
                   </MotionBox>
-                </Link>
-              ))}
-            </SimpleGrid>
+                  </Link>
+                ))}
+              </SimpleGrid>
+            )}
           </MotionVStack>
         </Container>
       </Box>

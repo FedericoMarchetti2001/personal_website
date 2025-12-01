@@ -139,8 +139,8 @@ export default function Hero() {
                 size="lg"
                 variant="ghost"
                 fontSize="md"
-                px={8}
                 leftIcon={<DownloadIcon />}
+                px={8}
                 borderWidth="2px"
                 borderColor={colorMode === 'dark' ? 'primary.300' : 'primary.500'}
                 color={colorMode === 'dark' ? 'primary.300' : 'primary.500'}

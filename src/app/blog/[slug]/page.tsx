@@ -1,3 +1,5 @@
+'use client';
+
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Box, Container, Heading, Text, VStack, HStack, Badge } from '@chakra-ui/react';
@@ -6,34 +8,17 @@ import Footer from '@/components/layout/Footer';
 import { allBlogs } from 'contentlayer/generated';
 import { getBlogBySlug } from '@/lib/contentlayer';
 import { MdxRenderer } from '@/lib/mdx';
+import { use } from 'react';
 
 interface BlogPostProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-}
-
-export async function generateStaticParams() {
-  return allBlogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
-  const blog = getBlogBySlug(params.slug);
-  
-  if (!blog) {
-    return {};
-  }
-
-  return {
-    title: `${blog.title} | Federico Marchetti`,
-    description: blog.description,
-  };
+  }>;
 }
 
 export default function BlogPost({ params }: BlogPostProps) {
-  const blog = getBlogBySlug(params.slug);
+  const { slug } = use(params);
+  const blog = getBlogBySlug(slug);
 
   if (!blog) {
     notFound();

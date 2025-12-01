@@ -58,7 +58,7 @@ export default function About() {
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
               color={colorMode === 'dark' ? 'gray.400' : 'gray.600'}
-              maxW="2xl"
+              maxW="6xl"
             >
               Crafting digital experiences with modern tools and approaches to deliver efficient solutions.
             </Text>

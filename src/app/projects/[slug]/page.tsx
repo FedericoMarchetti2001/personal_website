@@ -1,3 +1,5 @@
+'use client';
+
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Box, Container, Heading, Text, VStack, HStack, Badge, Image, Button, Icon } from '@chakra-ui/react';
@@ -7,34 +9,17 @@ import Footer from '@/components/layout/Footer';
 import { allProjects } from 'contentlayer/generated';
 import { getProjectBySlug } from '@/lib/contentlayer';
 import { MdxRenderer } from '@/lib/mdx';
+import { use } from 'react';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-}
-
-export async function generateStaticParams() {
-  return allProjects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const project = getProjectBySlug(params.slug);
-  
-  if (!project) {
-    return {};
-  }
-
-  return {
-    title: `${project.title} | Federico Marchetti`,
-    description: project.summary,
-  };
+  }>;
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProjectBySlug(params.slug);
+  const { slug } = use(params);
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
