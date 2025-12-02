@@ -29,7 +29,7 @@ Add images referenced in blog posts:
 
 ```
 /public/assets/blog/
-└── [image-name].jpg..
+└── [image-name].jpg
 ```
 
 ## Image Optimization Tips
