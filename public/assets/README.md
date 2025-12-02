@@ -31,7 +31,7 @@ Add images referenced in blog posts:
 /public/assets/blog/
 └── [image-name].jpg
 ```
-
+s
 ## Image Optimization Tips
 
 1. **Recommended Sizes**:
