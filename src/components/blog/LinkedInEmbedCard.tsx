@@ -19,12 +19,12 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
       borderRadius="xl"
       borderWidth="1px"
       borderColor="whiteAlpha.100"
-      transition="all 0.3s"
-      _hover={{
+      whileHover={{
         borderColor: 'blue.500',
         boxShadow: '0 8px 30px rgba(66, 153, 225, 0.2)',
-        transform: 'translateY(-4px)',
+        y: -4,
       }}
+      transition={{ duration: 0.3 }}
     >
       <VStack align="stretch" spacing={4}>
         {/* Header with title and LinkedIn link */}
