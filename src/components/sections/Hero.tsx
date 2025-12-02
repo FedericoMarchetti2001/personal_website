@@ -79,7 +79,7 @@ export default function Hero() {
             maxW="3xl"
             variants={staggerItem}
           >
-            Full-Stack Developer • React • .NET • Azure
+            Full-Stack Developer • .NET • Azure • React
           </MotionText>
 
           {/* Description */}

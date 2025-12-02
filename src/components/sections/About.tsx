@@ -10,11 +10,6 @@ const MotionVStack = motion(VStack);
 
 const skills = [
   {
-    icon: FaCode,
-    title: 'Frontend Development',
-    description: 'Building responsive, interactive UIs with React, Next.js, TypeScript, and modern CSS frameworks to create engaging user experiences.',
-  },
-  {
     icon: FaCloud,
     title: 'Backend & Cloud',
     description: 'Developing scalable APIs with .NET Core and deploying to Azure cloud infrastructure to ensure reliability.',
@@ -23,6 +18,11 @@ const skills = [
     icon: FaPalette,
     title: 'AI Integration',
     description: 'Integrating artificial intelligence to cut costs in tedious tasks and improve efficiency.',
+  },
+  {
+    icon: FaCode,
+    title: 'Frontend Development',
+    description: 'Building responsive, interactive UIs with React, Next.js, TypeScript, and modern CSS frameworks to create engaging user experiences.',
   },
   {
     icon: FaRocket,

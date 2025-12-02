@@ -104,7 +104,7 @@ Your task:
   - Reduced-motion mode: static gradient only
 - Framer Motion fade/slide-in text:
   - “Federico Marchetti”
-  - Subtitle: “Full-Stack Developer • React • .NET • Azure”
+  - Subtitle: “Full-Stack Developer • .NET • Azure • React”
 - CTA buttons:
   - View Projects
   - Read Blog
