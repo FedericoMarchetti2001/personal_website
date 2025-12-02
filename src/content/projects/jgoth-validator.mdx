@@ -1,0 +1,101 @@
+---
+title: JGoth Validator
+summary: A JSON formatter and validator with a dark gothic aesthetic, gamification through achievements, and multi-language support—where developer tools meet dark aesthetics.
+year: 2024
+tags:
+  - Web App
+  - Developer Tools
+  - Frontend
+technologies:
+  - React
+  - TypeScript
+  - Material-UI
+  - Emotion
+  - i18next
+  - react-json-view
+coverImage: /assets/projects/jgoth-validator-cover.png
+github: https://github.com/FedericoMarchetti2001/json_formatter
+link: https://www.jgothvalidator.com/
+---
+
+## Project Overview
+
+JGoth Validator reimagines the mundane task of JSON validation by merging technical functionality with a distinctive gothic aesthetic. This client-side web application transforms data formatting from a routine development task into an immersive experience complete with achievement unlocks, dark visual themes, and personality that makes even the most technical work feel like a dark art quest.
+
+## The Challenge
+
+Traditional JSON formatters are purely utilitarian—functional but soulless. I wanted to explore whether developer tools could be both technically robust and visually engaging, proving that functionality and personality can coexist beautifully. The challenge was building a validator that maintained professional-grade functionality while embracing a bold, unconventional design language inspired by goth and emo culture.
+
+## What Makes It Special
+
+### Dark Gothic Aesthetic
+
+Unlike typical developer tools with bland corporate designs, JGoth Formatter embraces a dark, moody aesthetic with:
+
+- Deep purple and magenta color schemes
+- Gothic fonts like UnifrakturCook and IM Fell English SC
+- Mysterious goth-themed quotes and imagery
+- A visual experience that feels more like a dark art gallery than a coding tool
+
+### Gamification Through Achievements
+
+As you use the app, you unlock achievements with names like JSON Slayer, Syntax Demon, and Format Master. Each achievement rewards you with exclusive goth-themed images, making mundane tasks feel like a quest. The system tracks formatting actions, theme changes, and usage patterns, persisting everything to localStorage.
+
+### Multi-Language Support
+
+The app speaks both English and German through react-i18next, making it accessible to a wider audience while maintaining its gothic personality across languages.
+
+## Technical Implementation
+
+### Architecture & Tech Stack
+
+Built as a **client-side single-page application (SPA)** with:
+
+**Core Technologies:**
+- React 18 with functional components and hooks
+- TypeScript for type safety (.tsx files)
+- Material-UI (MUI) v5 as the component library foundation
+- Emotion for CSS-in-JS styling via MUI's styled API and sx prop
+
+**Key Features:**
+- Custom validation engine in `json-validator.ts` with detailed error messages
+- Multi-page support for working with multiple JSON documents simultaneously
+- State management via React hooks with full localStorage persistence
+- Achievement system with TypeScript interfaces and import/export functionality
+- Multiple JSON viewer themes with global CSS variables for consistent gothic aesthetics
+- Keyboard shortcuts (Alt+Enter for formatting, Tab navigation, Esc for quick actions)
+
+### Component Architecture
+
+The main component manages global state (current page, formatted text, achievements, theme) and coordinates child components including:
+
+- **FormatterActions**: Action buttons with tooltips
+- **InputOutputSection**: Dual-pane editor with TextareaAutosize and JsonView
+- **FormatterPagination**: Tab-like interface for multiple documents
+- **GothControlPanel**: Settings and preferences UI
+- **AchievementImportExport**: Achievement data management
+
+### Styling Approach
+
+The app uses a hybrid styling strategy:
+- Global CSS custom properties for theme colors with consistency overrides
+- MUI sx prop for component-specific adjustments
+- Emotion styled components for MUI customization
+- Inline style objects for specific component needs
+
+### Build & Deployment
+
+- Built with Create React App (CRA) with TypeScript support
+- Deployed on Vercel with analytics integration
+- Fully client-side architecture with no backend or API calls
+- Static build output for optimal performance
+
+## Design Philosophy
+
+The visual identity draws from gothic typography, deep purple/magenta color schemes, and mysterious thematic quotes. Every interaction reinforces the dark aesthetic—from toast notifications to achievement unlock animations—creating a cohesive experience that stands out in the sterile landscape of developer tools.
+
+## Impact
+
+JGoth Formatter demonstrates that developer tools don't have to be boring. By combining robust JSON validation with a unique aesthetic and gamification, it creates an engaging experience that makes repetitive tasks feel more enjoyable. The no-installation, browser-based approach lowers the barrier to entry, while the achievement system encourages repeated use.
+
+Whether you're a goth at heart or just appreciate good design, this tool proves that personality and professionalism aren't mutually exclusive in technical applications. 🖤🦇

@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# content layer
+.contentlayer
+
 # next.js
 /.next/
 /.next/dev

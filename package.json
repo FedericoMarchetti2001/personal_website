@@ -4,11 +4,12 @@
   "description": "Personal website of Federico Marchetti - Full-Stack Developer",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "contentlayer build && next dev",
     "build": "contentlayer build && next build",
-    "start": "next start",
+    "start": "contentlayer build && next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "refresh": "contentlayer build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",

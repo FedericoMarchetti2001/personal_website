@@ -58,7 +58,7 @@ export default makeSource({
   contentDirPath: 'src/content', // Content lives inside the src folder
   documentTypes: [Blog, Project],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
