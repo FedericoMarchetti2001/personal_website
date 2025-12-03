@@ -1,54 +1,48 @@
 import { IconButton, HStack } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { ReactNode } from 'react';
 
 interface BlogNavigationArrowsProps {
   onPrev: () => void;
   onNext: () => void;
+  children: ReactNode;
 }
 
-export function BlogNavigationArrows({ onPrev, onNext }: BlogNavigationArrowsProps) {
+export function BlogNavigationArrows({ onPrev, onNext, children }: BlogNavigationArrowsProps) {
   return (
     <>
-      {/* Desktop: Fixed position arrows on sides */}
-      <IconButton
-        icon={<ChevronLeftIcon boxSize={8} />}
-        aria-label="Previous blog source"
-        position="fixed"
-        left={4}
-        top="50%"
-        transform="translateY(-50%)"
-        size="lg"
-        colorScheme="purple"
-        variant="ghost"
-        onClick={onPrev}
-        _hover={{ 
-          transform: "translateY(-50%) scale(1.1)",
-          bg: 'whiteAlpha.100',
-        }}
-        display={{ base: 'none', md: 'flex' }}
-        zIndex={10}
-        borderRadius="full"
-      />
-
-      <IconButton
-        icon={<ChevronRightIcon boxSize={8} />}
-        aria-label="Next blog source"
-        position="fixed"
-        right={4}
-        top="50%"
-        transform="translateY(-50%)"
-        size="lg"
-        colorScheme="purple"
-        variant="ghost"
-        onClick={onNext}
-        _hover={{ 
-          transform: "translateY(-50%) scale(1.1)",
-          bg: 'whiteAlpha.100',
-        }}
-        display={{ base: 'none', md: 'flex' }}
-        zIndex={10}
-        borderRadius="full"
-      />
+      {/* Desktop: Arrows with indicator in the middle */}
+      <HStack spacing={8} display={{ base: 'none', md: 'flex' }} justify="center" align="center">
+        <IconButton
+          icon={<ChevronLeftIcon boxSize={8} />}
+          aria-label="Previous blog source"
+          size="lg"
+          colorScheme="purple"
+          variant="ghost"
+          onClick={onPrev}
+          _hover={{ 
+            transform: "scale(1.1)",
+            bg: 'whiteAlpha.100',
+          }}
+          borderRadius="full"
+        />
+        
+        {children}
+        
+        <IconButton
+          icon={<ChevronRightIcon boxSize={8} />}
+          aria-label="Next blog source"
+          size="lg"
+          colorScheme="purple"
+          variant="ghost"
+          onClick={onNext}
+          _hover={{ 
+            transform: "scale(1.1)",
+            bg: 'whiteAlpha.100',
+          }}
+          borderRadius="full"
+        />
+      </HStack>
 
       {/* Mobile: Bottom navigation */}
       <HStack

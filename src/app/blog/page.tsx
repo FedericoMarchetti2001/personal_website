@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Badge, useColorMode } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Badge, IconButton, useColorMode } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
@@ -66,14 +67,6 @@ export default function BlogPage() {
     <>
       <Navbar />
       <Box minH="100vh" pt={24} pb={12} position="relative">
-        {/* Navigation Arrows */}
-        {enabledSources.length > 1 && (
-          <BlogNavigationArrows
-            onPrev={handlePrev}
-            onNext={handleNext}
-          />
-        )}
-
         <Container maxW="container.xl">
           <MotionVStack
             spacing={12}
@@ -82,12 +75,73 @@ export default function BlogPage() {
             initial="hidden"
             animate="visible"
           >
-            {/* Source Indicator */}
-            <BlogSourceIndicator
-              source={activeSource}
-              currentIndex={activeSourceIndex}
-              totalSources={enabledSources.length}
-            />
+            {/* Source Indicator with Navigation Arrows */}
+            <VStack spacing={4}>
+              {/* Desktop: Show indicator on mobile without arrows */}
+              <Box display={{ base: 'block', md: 'none' }}>
+                <BlogSourceIndicator
+                  source={activeSource}
+                  currentIndex={activeSourceIndex}
+                  totalSources={enabledSources.length}
+                />
+              </Box>
+
+              {/* Desktop: Arrows with indicator in middle */}
+              {enabledSources.length > 1 ? (
+                <BlogNavigationArrows
+                  onPrev={handlePrev}
+                  onNext={handleNext}
+                >
+                  <BlogSourceIndicator
+                    source={activeSource}
+                    currentIndex={activeSourceIndex}
+                    totalSources={enabledSources.length}
+                  />
+                </BlogNavigationArrows>
+              ) : (
+                <Box display={{ base: 'none', md: 'block' }}>
+                  <BlogSourceIndicator
+                    source={activeSource}
+                    currentIndex={activeSourceIndex}
+                    totalSources={enabledSources.length}
+                  />
+                </Box>
+              )}
+            </VStack>
+
+            {/* Mobile: Bottom navigation bar */}
+            {enabledSources.length > 1 && (
+              <HStack
+                position="fixed"
+                bottom={4}
+                left="50%"
+                transform="translateX(-50%)"
+                spacing={4}
+                display={{ base: 'flex', md: 'none' }}
+                zIndex={10}
+                bg="blackAlpha.700"
+                backdropFilter="blur(10px)"
+                p={2}
+                borderRadius="full"
+              >
+                <IconButton
+                  icon={<ChevronLeftIcon boxSize={6} />}
+                  aria-label="Previous blog source"
+                  onClick={handlePrev}
+                  colorScheme="purple"
+                  size="md"
+                  borderRadius="full"
+                />
+                <IconButton
+                  icon={<ChevronRightIcon boxSize={6} />}
+                  aria-label="Next blog source"
+                  onClick={handleNext}
+                  colorScheme="purple"
+                  size="md"
+                  borderRadius="full"
+                />
+              </HStack>
+            )}
 
             {/* Animated Content Area */}
             <AnimatePresence mode="wait" custom={direction}>

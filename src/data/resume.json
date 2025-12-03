@@ -136,19 +136,41 @@
   "languages": [
     {
       "name": "Italian",
-      "proficiency": "Native speaker"
-    },
-    {
-      "name": "English",
-      "proficiency": "Fluent (C2 - self evaluated, IELTS Academic C1 achieved in 2018)"
-    },
-    {
-      "name": "German",
-      "proficiency": "Advanced (Goethe C1 level achieved in April 2025)"
+      "proficiency": "Native speaker",
+      "credentialUrls": []
     },
     {
       "name": "French",
-      "proficiency": "Advanced (Heritage/Native speaker)"
+      "proficiency": "Advanced (Heritage/Native speaker)",
+      "credentialUrls": []
+    },
+    {
+      "name": "English",
+      "proficiency": "Fluent (C2 - self evaluated, IELTS Academic C1 achieved in 2018)",
+      "credentialUrls": [
+        {
+          "url": "/assets/credentials/IELTS.pdf",
+          "label": "IELTS Academic C1"
+        }
+      ]
+    },
+    {
+      "name": "German",
+      "proficiency": "Advanced (Goethe C1 level achieved in April 2025)",
+      "credentialUrls": [
+        {
+          "url": "/assets/credentials/Zertifikate - hoeren.pdf",
+          "label": "Goethe-Certificate C1 - Listening"
+        },
+        {
+          "url": "/assets/credentials/Zertifikate - sprechen.pdf",
+          "label": "Goethe-Certificate C1 - Speaking"
+        },
+        {
+          "url": "/assets/credentials/Zertifikate - lesen.pdf",
+          "label": "Goethe-Certificate C2 - Reading"
+        }
+      ]
     }
   ],
   "links": {

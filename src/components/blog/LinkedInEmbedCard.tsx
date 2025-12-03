@@ -1,6 +1,7 @@
-import { Box, VStack, Heading, Text, HStack, Badge, IconButton, Link } from '@chakra-ui/react';
+import { useState } from 'react';
+import { Box, VStack, Heading, Text, HStack, Badge, IconButton, Link, Skeleton } from '@chakra-ui/react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { UnifiedBlogPost } from '@/hooks/useBlogContent';
 import { staggerItem } from '@/components/motion/variants';
 
@@ -11,6 +12,8 @@ interface LinkedInEmbedCardProps {
 }
 
 export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <MotionBox
       variants={staggerItem}
@@ -80,11 +83,34 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
         <Box
           position="relative"
           width="100%"
-          height="500px"
+          height="300px"
           bg="blackAlpha.300"
           borderRadius="lg"
           overflow="hidden"
         >
+          <AnimatePresence>
+            {isLoading && (
+              <MotionBox
+                position="absolute"
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Skeleton
+                  height="100%"
+                  width="100%"
+                  startColor="whiteAlpha.100"
+                  endColor="whiteAlpha.200"
+                  borderRadius="lg"
+                />
+              </MotionBox>
+            )}
+          </AnimatePresence>
+          
           <iframe
             src={post.embedUrl}
             style={{
@@ -94,7 +120,10 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
               width: '100%',
               height: '100%',
               border: 'none',
+              opacity: isLoading ? 0 : 1,
+              transition: 'opacity 0.3s ease-in-out',
             }}
+            onLoad={() => setIsLoading(false)}
             allowFullScreen
             title={`LinkedIn post: ${post.title}`}
             loading="lazy"

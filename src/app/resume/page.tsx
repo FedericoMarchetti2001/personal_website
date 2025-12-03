@@ -240,7 +240,7 @@ export default function ResumePage() {
                   <Heading as="h2" size="lg" mb={6} fontFamily="heading">
                     Languages
                   </Heading>
-                  <SimpleGrid columns={2} spacing={4}>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                     {resume.languages.map((lang) => (
                       <Box
                         key={lang.name}
@@ -249,12 +249,38 @@ export default function ResumePage() {
                         borderRadius="lg"
                         borderWidth="1px"
                         borderColor="whiteAlpha.100"
-                        textAlign="center"
                       >
-                        <Text fontWeight="semibold">{lang.name}</Text>
-                        <Text fontSize="sm" color="gray.400">
-                          {lang.proficiency}
-                        </Text>
+                        <VStack align="start" spacing={3}>
+                          <Box width="100%">
+                            <Text fontWeight="semibold" fontSize="lg">{lang.name}</Text>
+                            <Text fontSize="sm" color="gray.400" mt={1}>
+                              {lang.proficiency}
+                            </Text>
+                          </Box>
+                          
+                          {/* Credentials section */}
+                          {lang.credentialUrls && lang.credentialUrls.length > 0 && (
+                            <VStack align="stretch" spacing={2} width="100%" pt={2}>
+                              {lang.credentialUrls.map((credential, idx) => (
+                                <Button
+                                  key={idx}
+                                  as="a"
+                                  href={credential.url}
+                                  download
+                                  target="_blank"
+                                  size="sm"
+                                  variant="outline"
+                                  colorScheme="teal"
+                                  leftIcon={<Icon as={FaDownload} />}
+                                  width="100%"
+                                  fontSize="xs"
+                                >
+                                  {credential.label || `Certificate ${idx + 1}`}
+                                </Button>
+                              ))}
+                            </VStack>
+                          )}
+                        </VStack>
                       </Box>
                     ))}
                   </SimpleGrid>

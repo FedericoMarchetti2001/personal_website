@@ -27,6 +27,7 @@ export interface Certification {
 export interface Language {
   name: string;
   proficiency: string;
+  credentialUrls?: { url: string; label?: string }[];
 }
 
 export interface ResumeData {
