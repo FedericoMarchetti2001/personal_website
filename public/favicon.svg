@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>FM</title>
+  <rect width="64" height="64" rx="12" fill="url(#g)" />
+  <path fill="#ffffff" d="M17 43V21h18v5H22v4h11v5H22v8h-5Zm14 0V21h5l7.5 11.5V21h5v22h-5l-7.5-11.5V43h-5Z"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6B46C1"/>
+      <stop offset="1" stop-color="#0BC5EA"/>
+    </linearGradient>
+  </defs>
+</svg>

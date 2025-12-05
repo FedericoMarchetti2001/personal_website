@@ -1,100 +1,115 @@
-'use client';
-
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Box, Container, Heading, Text, VStack, HStack, Badge } from '@chakra-ui/react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import { allBlogs } from 'contentlayer/generated';
+import BlogPostClient from './BlogPostClient';
 import { getBlogBySlug } from '@/lib/contentlayer';
-import { MdxRenderer } from '@/lib/mdx';
-import { use } from 'react';
+import { allBlogs } from 'contentlayer/generated';
+import Script from 'next/script';
 
-interface BlogPostProps {
-  params: Promise<{
+type BlogPageParams = {
+  params: {
     slug: string;
-  }>;
+  };
+};
+
+export function generateStaticParams() {
+  return allBlogs.map((blog) => ({ slug: blog.slug }));
 }
 
-export default function BlogPost({ params }: BlogPostProps) {
-  const { slug } = use(params);
-  const blog = getBlogBySlug(slug);
+export function generateMetadata({ params }: BlogPageParams): Metadata {
+  const blog = getBlogBySlug(params.slug);
+
+  if (!blog) {
+    return {
+      title: 'Blog post not found',
+    };
+  }
+
+  const url = `https://federicomarchetti.dev${blog.url}`;
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    alternates: {
+      canonical: blog.url,
+    },
+    openGraph: {
+      type: 'article',
+      url,
+      title: blog.title,
+      description: blog.description,
+      publishedTime: new Date(blog.date).toISOString(),
+      tags: blog.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.description,
+    },
+  };
+}
+
+export default function BlogPostPage({ params }: BlogPageParams) {
+  const blog = getBlogBySlug(params.slug);
 
   if (!blog) {
     notFound();
   }
 
+  const url = `https://federicomarchetti.dev${blog.url}`;
+
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: blog.title,
+    description: blog.description,
+    datePublished: new Date(blog.date).toISOString(),
+    dateModified: new Date(blog.date).toISOString(),
+    author: {
+      '@type': 'Person',
+      name: 'Federico Marchetti',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    url,
+    keywords: blog.tags,
+  };
+
+  const breadcrumbStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://federicomarchetti.dev',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://federicomarchetti.dev/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: blog.title,
+        item: url,
+      },
+    ],
+  };
+
   return (
     <>
-      <Navbar />
-      <Box minH="100vh" pt={24} pb={12}>
-        <Container maxW="container.md">
-          <VStack spacing={8} align="stretch">
-            {/* Header */}
-            <VStack spacing={4} align="start">
-              <HStack wrap="wrap" spacing={2}>
-                {blog.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    colorScheme="purple"
-                    fontSize="sm"
-                    px={3}
-                    py={1}
-                    borderRadius="md"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </HStack>
-              
-              <Heading
-                as="h1"
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontFamily="heading"
-              >
-                {blog.title}
-              </Heading>
-              
-              <Text fontSize="lg" color="gray.500">
-                {blog.description}
-              </Text>
-              
-              <Text fontSize="sm" color="gray.600">
-                {new Date(blog.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </Text>
-            </VStack>
-
-            {/* MDX Content */}
-            <Box
-              className="mdx-content"
-              sx={{
-                '& pre': {
-                  p: 4,
-                  borderRadius: 'lg',
-                  overflowX: 'auto',
-                  bg: 'blackAlpha.400',
-                  my: 4,
-                },
-                '& code': {
-                  fontFamily: 'mono',
-                  fontSize: 'sm',
-                },
-                '& img': {
-                  borderRadius: 'lg',
-                  my: 6,
-                },
-              }}
-            >
-              <MdxRenderer code={blog.body.code} />
-            </Box>
-          </VStack>
-        </Container>
-      </Box>
-      <Footer />
+      <Script
+        id={`ld-blog-${blog.slug}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleStructuredData, breadcrumbStructuredData]) }}
+      />
+      <BlogPostClient blog={blog} />
     </>
   );
 }

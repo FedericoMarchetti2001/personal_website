@@ -1,29 +1,31 @@
 import { MetadataRoute } from 'next';
 import { allBlogs, allProjects } from 'contentlayer/generated';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://federicomarchetti.dev';
+const BASE_URL = 'https://federicomarchetti.dev';
 
-  // Static pages
-  const routes = ['', '/blog', '/projects', '/resume', '/contact'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'monthly' as const,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  // Static pages that actually exist
+  const routes = ['', '/blog', '/projects', '/resume'].map((route) => ({
+    url: `${BASE_URL}${route}`,
+    lastModified: now.toISOString(),
+    changeFrequency: route === '' ? ('weekly' as const) : ('monthly' as const),
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // Blog posts
+  // Blog posts ordered with their authored date
   const blogs = allBlogs.map((blog) => ({
-    url: `${baseUrl}${blog.url}`,
+    url: `${BASE_URL}${blog.url}`,
     lastModified: new Date(blog.date).toISOString(),
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.7,
   }));
 
-  // Projects
+  // Projects use the year as an approximation of last modification
   const projects = allProjects.map((project) => ({
-    url: `${baseUrl}${project.url}`,
-    lastModified: new Date().toISOString(),
+    url: `${BASE_URL}${project.url}`,
+    lastModified: new Date(project.year, 0, 1).toISOString(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
