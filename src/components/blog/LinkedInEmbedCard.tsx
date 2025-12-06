@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, VStack, Heading, Text, HStack, Badge, IconButton, Link, Skeleton } from '@chakra-ui/react';
+import { Box, VStack, Heading, Text, HStack, Badge, IconButton, Link, Skeleton, useToken } from '@chakra-ui/react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UnifiedBlogPost } from '@/hooks/useBlogContent';
@@ -13,6 +13,7 @@ interface LinkedInEmbedCardProps {
 
 export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [borderBase, borderHover] = useToken('colors', ['whiteAlpha.100', 'blue.500']);
 
   return (
     <MotionBox
@@ -21,9 +22,10 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
       bg="whiteAlpha.50"
       borderRadius="xl"
       borderWidth="1px"
-      borderColor="whiteAlpha.100"
+      borderColor={borderBase}
       whileHover={{
-        borderColor: 'blue.500',
+        // Framer Motion needs resolved color values, not Chakra tokens like "blue.500".
+        borderColor: borderHover,
         boxShadow: '0 8px 30px rgba(66, 153, 225, 0.2)',
         y: -4,
       }}
@@ -103,8 +105,8 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
                 <Skeleton
                   height="100%"
                   width="100%"
-                  startColor="whiteAlpha.100"
-                  endColor="whiteAlpha.200"
+                  startColor="blue.100"
+                  endColor="blue.500"
                   borderRadius="lg"
                 />
               </MotionBox>
