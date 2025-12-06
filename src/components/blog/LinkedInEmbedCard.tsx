@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { UnifiedBlogPost } from '@/hooks/useBlogContent';
 import { staggerItem } from '@/components/motion/variants';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 interface LinkedInEmbedCardProps {
   post: UnifiedBlogPost;

@@ -9,8 +9,8 @@ import Footer from '@/components/layout/Footer';
 import { allSortedProjects } from '@/lib/contentlayer';
 import { staggerContainer, staggerItem } from '@/components/motion/variants';
 
-const MotionBox = motion(Box);
-const MotionVStack = motion(VStack);
+const MotionBox = motion.create(Box);
+const MotionVStack = motion.create(VStack);
 
 export default function ProjectsPageClient() {
   const projects = allSortedProjects();

@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { FaCode, FaCloud, FaPalette, FaRocket } from 'react-icons/fa';
 import { slideUp, staggerContainer, staggerItem } from '@/components/motion/variants';
 
-const MotionBox = motion(Box);
-const MotionVStack = motion(VStack);
+const MotionBox = motion.create(Box);
+const MotionVStack = motion.create(VStack);
 
 const skills = [
   {

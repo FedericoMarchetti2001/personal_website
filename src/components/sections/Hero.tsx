@@ -7,10 +7,10 @@ import { DownloadIcon } from '@chakra-ui/icons';
 import R3FCanvas from '@/components/three/R3FCanvas';
 import { fadeIn, slideUp, staggerContainer, staggerItem } from '@/components/motion/variants';
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
-const MotionVStack = motion(VStack);
+const MotionBox = motion.create(Box);
+const MotionHeading = motion.create(Heading);
+const MotionText = motion.create(Text);
+const MotionVStack = motion.create(VStack);
 
 export default function Hero() {
   const { colorMode } = useColorMode();

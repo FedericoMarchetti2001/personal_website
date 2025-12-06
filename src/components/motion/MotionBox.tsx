@@ -11,7 +11,7 @@ type MotionBoxProps = BoxProps & MotionProps & {
 };
 
 // Convert the Chakra Box component to a Framer Motion component
-const ChakraMotionBox = motion(Box);
+const ChakraMotionBox = motion.create(Box);
 
 /**
  * A wrapper component that combines Chakra UI styling and layout with Framer Motion animations.

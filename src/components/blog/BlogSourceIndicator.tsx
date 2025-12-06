@@ -2,7 +2,7 @@ import { VStack, HStack, Heading, Text, Icon, Box } from '@chakra-ui/react';
 import { BlogSource } from '@/config/blogSources';
 import { motion } from 'framer-motion';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 interface BlogSourceIndicatorProps {
   source: BlogSource;

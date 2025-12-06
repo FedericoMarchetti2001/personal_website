@@ -14,8 +14,8 @@ import { BlogNavigationArrows } from '@/components/blog/BlogNavigationArrows';
 import { LinkedInEmbedCard } from '@/components/blog/LinkedInEmbedCard';
 import { staggerContainer, staggerItem } from '@/components/motion/variants';
 
-const MotionBox = motion(Box);
-const MotionVStack = motion(VStack);
+const MotionBox = motion.create(Box);
+const MotionVStack = motion.create(VStack);
 
 const slideVariants = {
   enter: (direction: number) => ({

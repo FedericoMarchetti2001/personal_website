@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const navLinks = [
   { name: 'Home', href: '/' },
