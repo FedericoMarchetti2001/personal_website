@@ -105,8 +105,8 @@ export function LinkedInEmbedCard({ post }: LinkedInEmbedCardProps) {
                 <Skeleton
                   height="100%"
                   width="100%"
-                  startColor="blue.100"
-                  endColor="blue.500"
+                  startColor="blue.300"
+                  endColor="purple.900"
                   borderRadius="lg"
                 />
               </MotionBox>
