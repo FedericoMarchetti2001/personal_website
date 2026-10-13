@@ -55,7 +55,7 @@ export default function Hero() {
             color="primary.500"
             variants={staggerItem}
           >
-            Hi, I'm
+            Hi, I&apos;m
           </MotionText>
 
           {/* Name */}
