@@ -76,19 +76,21 @@ const WaveShaderMaterial = shaderMaterial(
 );
 extend({ WaveShaderMaterial });
 
-// TypeScript declaration for the custom shader material
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      waveShaderMaterial: any;
-    }
-  }
+// JSX typing for <waveShaderMaterial /> lives in src/types/r3f-declarations.d.ts
+
+// Uniforms exposed by WaveShaderMaterial that are mutated every frame
+interface WaveMaterialUniforms {
+  uTime: number;
+  uMouse: THREE.Vector2;
+  uColorStart: THREE.Color;
+  uColorEnd: THREE.Color;
+  uDarkMode: number;
 }
 
 // 2. The Interactive Mesh Component with fixed uniform handling
 function WaveMesh() {
   const meshRef = useRef<THREE.Mesh>(null!);
-  const materialRef = useRef<any>(null!);
+  const materialRef = useRef<(THREE.ShaderMaterial & WaveMaterialUniforms) | null>(null);
   const { x, y } = useMousePosition();
   const { colorMode } = useColorMode();
   const prefersReducedMotion = useReducedMotion();
