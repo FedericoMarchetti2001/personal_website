@@ -58,6 +58,9 @@ export default makeSource({
   contentDirPath: 'src/content', // Content lives inside the src folder
   documentTypes: [Blog, Project],
   mdx: {
+    // Contentlayer defaults NODE_ENV to 'development', which compiles MDX with
+    // jsxDEV and breaks production prerendering. The prod runtime works in dev too.
+    mdxOptions: (options) => ({ ...options, development: false }),
     remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,

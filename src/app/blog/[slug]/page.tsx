@@ -6,17 +6,18 @@ import { allBlogs } from 'contentlayer/generated';
 import Script from 'next/script';
 
 type BlogPageParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return allBlogs.map((blog) => ({ slug: blog.slug }));
 }
 
-export function generateMetadata({ params }: BlogPageParams): Metadata {
-  const blog = getBlogBySlug(params.slug);
+export async function generateMetadata({ params }: BlogPageParams): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = getBlogBySlug(slug);
 
   if (!blog) {
     return {
@@ -48,8 +49,9 @@ export function generateMetadata({ params }: BlogPageParams): Metadata {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPageParams) {
-  const blog = getBlogBySlug(params.slug);
+export default async function BlogPostPage({ params }: BlogPageParams) {
+  const { slug } = await params;
+  const blog = getBlogBySlug(slug);
 
   if (!blog) {
     notFound();

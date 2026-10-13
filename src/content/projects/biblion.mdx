@@ -1,0 +1,99 @@
+---
+title: Biblion
+summary: An AI-powered mobile reading companion for language learners—import any EPUB, PDF or TXT book, read it in its original language, and get instant contextual translations, explanations and spoken audio.
+year: 2026
+tags:
+  - Mobile
+  - Full Stack
+  - AI
+  - EdTech
+technologies:
+  - React Native
+  - Expo
+  - TypeScript
+  - Fastify
+  - Azure Functions
+  - Supabase
+  - OpenAI
+  - RevenueCat
+  - Zod
+coverImage: /assets/projects/biblion-cover.svg
+---
+
+## Project Overview
+
+Biblion is a cross-platform reading app (iOS, Android and web via Expo) for people learning a foreign language through real books. You set a *Mother Tongue* (the language of the UI and explanations) and a *Target Language* (the language of the book), import a book, and read it chapter by chapter. When you hit a word or a passage you don't understand, you ask the AI, without ever leaving the page. The interface ships in five languages: English, Italian, French, Spanish and German.
+
+## The Challenge
+
+Reading real literature in a language you're learning means constantly jumping out to a dictionary or a translator and losing your place, your focus and your context. Generic translators don't help much either: they ignore the sentence, paragraph and book a word lives in, so idioms and ambiguous words come back wrong.
+
+Biblion keeps the learner inside the book. Every lookup carries the selected text together with its surrounding sentence, paragraph and book metadata, so explanations fit the context. It also tackles the *"what should I read?"* problem by pointing learners to free, legal public-domain books on Project Gutenberg, filtered by language.
+
+## What Makes It Special
+
+### Context-Aware AI Lookup & Translation
+
+Selecting text opens an AI bottom sheet with a translation and an explanation that take the surrounding context into account. Each section of the reader has its own translate action, and translations are cached server-side, so repeated lookups are instant and cheap.
+
+### AI Narration
+
+Premium users can listen to any section through server-side text-to-speech, and a higher tier can generate audio for an entire chapter, which turns the app into an audiobook companion for the text on screen.
+
+### Multi-Provider AI Router with Plan-Based Model Policy
+
+AI calls go through a provider abstraction (OpenAI today, with Azure OpenAI, DeepL, Google and DeepSeek adapters stubbed, plus a mock fallback). A central model policy maps each plan (free, premium, super, developer) to a model tier and to character and TTS limits. On top of that, rate limiting and usage tracking keep costs predictable.
+
+### Bring Your Own Books
+
+Books are imported as EPUB, PDF or TXT through pluggable parsers and split into readable sections. A *Continue* tab restores the last book, chapter and exact scroll position. The library works offline-first with local persistence, and premium users get cloud sync across devices.
+
+## Technical Implementation
+
+### Architecture & Monorepo
+
+Biblion is an **npm workspaces monorepo** with three parts:
+
+- **apps/mobile**: the Expo React Native app
+- **apps/api**: a Fastify API running inside Azure Functions
+- **packages/shared**: Zod schemas, shared TypeScript types and mock fixtures used by both app and API, with a dedicated React Native entry point
+
+Because both sides share the same schemas, the API contract is type-checked end to end.
+
+### Mobile App
+
+- Expo 54 / React Native 0.81 on the New Architecture, React 19 and TypeScript
+- React Navigation with bottom tabs and a Books → Chapters → Reader stack
+- React Native Paper (Material 3) with custom light/dark themes kept in sync with the navigation theme
+- i18next for localisation, with a project rule that bans hardcoded UI strings
+- AsyncStorage for library, progress and translation cache; SecureStore for auth tokens
+
+### Backend & Data
+
+- Fastify 5 wrapped in an Azure Functions HTTP trigger, with Swagger/OpenAPI docs, health and readiness probes, and a config endpoint
+- Routes for auth, book uploads, AI lookup and speech, translation, sync and payment webhooks
+- Supabase Postgres for entitlements and the translation cache; Supabase Storage for book files
+- Secrets resolved at runtime from Azure Key Vault via Managed Identity
+
+### Authentication & Entitlements
+
+Supabase is the identity provider for Google and Apple sign-in. The app completes OAuth via deep links, keeps the session in secure storage and refreshes it automatically. The API validates the Supabase JWT on every request and derives entitlements **server-side only**, never trusting the client. RevenueCat handles in-app subscriptions, and its webhooks update user entitlements on the backend. AI providers are only ever called from the server.
+
+### Mock-First Development
+
+The app was built *mock-first*: it runs end to end on mock data and mock parsers, with stress-test "mock packs" ranging from micro books to monster-sized edge cases. That made it possible to design and harden the reading UX before the backend existed. Unit tests cover section splitting and TXT parsing, and a smoke-test script exercises the API.
+
+## Design Philosophy
+
+Biblion is meant to feel like a book, not a dashboard. The palette is calm and literary: olive, brown and parchment in light mode, and warm tan in dark mode, with System, Light and Dark switching. Reading always comes first. The text is split into collapsible sections, each with its own translate and play actions, and AI help appears in a bottom sheet instead of taking you away from the page. Localisation was there from day one, and explanations always come in the learner's mother tongue.
+
+## Status & Lessons Learned
+
+Biblion is an **MVP in active development**, built intensively over a few weeks in early 2026. The core infrastructure (Azure Functions, Key Vault, Supabase and RevenueCat) is wired up, while features such as URL import, server-side parsing and the additional AI providers are still on the roadmap.
+
+The project was a deep dive into a few practices I now consider essential for AI-powered products:
+
+- **Contract-first design**: shared Zod schemas keep the app and API in lockstep
+- **Mock-first development**: the UX can be built and stress-tested independently of the backend
+- **Server-side entitlement enforcement**: the client never decides what a user is allowed to do
+- **Cost control by design**: plan-based model gating, rate limiting and caching keep AI spend predictable
