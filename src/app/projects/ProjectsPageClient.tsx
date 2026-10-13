@@ -64,7 +64,7 @@ export default function ProjectsPageClient() {
                     Projects Coming Soon
                   </Heading>
                   <Text color="gray.400" maxW="md">
-                    I'm currently preparing detailed case studies of my work. Check back soon to see my latest projects in React, .NET, Azure, and AI integration!
+                    I&apos;m currently preparing detailed case studies of my work. Check back soon to see my latest projects in React, .NET, Azure, and AI integration!
                   </Text>
                 </VStack>
               </MotionBox>
