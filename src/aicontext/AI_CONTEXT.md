@@ -204,3 +204,4 @@ This file governs ALL decisions of the vibecoding agent.
 ## Tooling notes
 - `.npmrc` sets `legacy-peer-deps=true` because `next-contentlayer@0.3.4` peers on Next 12/13 while the site runs Next 16 (`npm ci` fails with ERESOLVE otherwise).
 - `npm run lint` runs `eslint .` with `eslint.config.mjs` (Next core-web-vitals preset); `next lint` no longer exists in Next 16.
+- `npm run type-check` first runs `scripts/contentlayer-build.mjs` (via `pretype-check`) because `contentlayer/generated` only exists after generation.

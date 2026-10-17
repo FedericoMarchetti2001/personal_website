@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Badge, IconButton, useColorMode } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -41,17 +41,19 @@ export default function BlogPageClient() {
   const activeSource = enabledSources[activeSourceIndex];
   const currentPosts = useBlogContent(activeSource.id);
 
-  const handleNext = () => {
-    setDirection(1);
-    setActiveSourceIndex((prev) => (prev + 1) % enabledSources.length);
-  };
+  const sourceCount = enabledSources.length;
 
-  const handlePrev = () => {
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setActiveSourceIndex((prev) => (prev + 1) % sourceCount);
+  }, [sourceCount]);
+
+  const handlePrev = useCallback(() => {
     setDirection(-1);
     setActiveSourceIndex((prev) => 
-      prev === 0 ? enabledSources.length - 1 : prev - 1
+      prev === 0 ? sourceCount - 1 : prev - 1
     );
-  };
+  }, [sourceCount]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -61,7 +63,7 @@ export default function BlogPageClient() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeSourceIndex]);
+  }, [handleNext, handlePrev]);
 
   return (
     <>
