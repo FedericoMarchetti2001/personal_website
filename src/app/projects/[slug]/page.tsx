@@ -6,17 +6,18 @@ import ProjectPageClient from './ProjectPageClient';
 import Script from 'next/script';
 
 type ProjectPageParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return allProjects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }: ProjectPageParams): Metadata {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({ params }: ProjectPageParams): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     return {
@@ -49,8 +50,9 @@ export function generateMetadata({ params }: ProjectPageParams): Metadata {
   };
 }
 
-export default function ProjectPage({ params }: ProjectPageParams) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: ProjectPageParams) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();

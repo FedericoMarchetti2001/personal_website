@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6F2EA"/>
+      <stop offset="1" stop-color="#E9DFCB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Open book -->
+  <g transform="translate(600 250)" stroke="#2F3A2A" stroke-width="6" stroke-linejoin="round" fill="none">
+    <path d="M0 -90 C -60 -120 -150 -120 -210 -95 L -210 95 C -150 70 -60 70 0 100 Z" fill="#FBF8F2"/>
+    <path d="M0 -90 C 60 -120 150 -120 210 -95 L 210 95 C 150 70 60 70 0 100 Z" fill="#FBF8F2"/>
+    <line x1="0" y1="-90" x2="0" y2="100"/>
+    <g stroke="#7A5C3E" stroke-width="4" stroke-linecap="round">
+      <path d="M-170 -55 C -120 -70 -70 -70 -35 -55"/>
+      <path d="M-170 -20 C -120 -35 -70 -35 -35 -20"/>
+      <path d="M-170 15 C -120 0 -70 0 -35 15"/>
+      <path d="M35 -55 C 70 -70 120 -70 170 -55"/>
+      <path d="M35 -20 C 70 -35 120 -35 170 -20"/>
+    </g>
+    <!-- Translation bubble -->
+    <g transform="translate(150 15)">
+      <rect x="-10" y="-8" width="92" height="56" rx="14" fill="#2F3A2A" stroke="none"/>
+      <path d="M8 46 L -4 64 L 24 46 Z" fill="#2F3A2A" stroke="none"/>
+      <text x="36" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#F6F2EA" stroke="none">A→あ</text>
+    </g>
+  </g>
+
+  <text x="600" y="455" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="84" fill="#2F3A2A" letter-spacing="4">Biblion</text>
+  <text x="600" y="510" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#7A5C3E" font-style="italic">Read real books in the language you're learning</text>
+</svg>
