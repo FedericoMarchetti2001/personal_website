@@ -7,9 +7,9 @@ AI_CONTEXT.md
 
 # 🔧 CORE ARCHITECTURE
 
-Framework: **Next.js 14 (App Router)**  
+Framework: **Next.js 16 (App Router, Turbopack, `output: 'standalone'`)**  
 Language: **TypeScript (strict: true)**  
-Styling: **Tailwind CSS + Chakra UI**  
+Styling: **Tailwind CSS 4 + Chakra UI 2**  
 Animation: **Framer Motion**  
 3D Graphics: **React Three Fiber + Drei**  
 Content CMS: **Contentlayer (MDX)**  
@@ -27,9 +27,11 @@ Deployment: **Vercel**
 src/
 ├─ app/... (routes)
 ├─ components/... (UI, motion, three, layout)
+├─ config/blogSources.ts
+├─ hooks/useBlogContent.ts
 ├─ lib/... (contentlayer, mdx, resume utilities)
 ├─ content/... (blog + projects MDX)
-├─ data/resume.json
+├─ data/ (resume.json, linkedinPosts.ts)
 ├─ theme/index.ts
 ├─ styles/globals.css
 └─ public/assets
@@ -73,9 +75,13 @@ Use these tokens:
 - Use a `/components/motion` folder with:
   - `fadeIn`
   - `slideUp`
+  - `slideInLeft`
+  - `slideInRight`
   - `staggerContainer`
+  - `staggerItem`
   - `scaleIn`
   - `hoverGlow`
+  - plus `hoverLift`, `cardHover`, `float`, `pageTransition` (all in `src/components/motion/variants.ts`)
 - Prefers-reduced-motion: disable via conditionals.
 
 ---
@@ -100,7 +106,7 @@ Disable for motion-reduced.
 
 # 📚 CONTENTLAYER SYSTEM
 
-Use `/content/blog/*.mdx` and `/content/projects/*.mdx`.
+Content root is `src/content` (`contentlayer.config.ts`): `blog/**/*.mdx` (folder not present yet) and `projects/**/*.mdx`. The blog page currently lists LinkedIn posts from `src/data/linkedinPosts.ts` via `src/hooks/useBlogContent.ts` and `src/config/blogSources.ts`. Generate output with `node scripts/contentlayer-build.mjs` (`npm run refresh`).
 
 ### Blog fields:
 

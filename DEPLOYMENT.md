@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js 18+ installed
+- Node.js 18+ installed (`engines` in package.json: node >=18, npm >=9)
 - GitHub account
 - Vercel account (recommended) or other hosting
 
@@ -194,7 +194,7 @@ module.exports = {
 
 ### Analytics
 
-Add Vercel Analytics:
+Vercel Analytics is already installed (`@vercel/analytics`) and rendered in `src/app/page.tsx` (`@vercel/analytics/next`). To add it elsewhere:
 
 ```bash
 npm install @vercel/analytics

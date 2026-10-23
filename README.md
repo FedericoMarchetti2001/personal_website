@@ -6,7 +6,7 @@ Deploy to Vercel: Push to GitHub and import to Vercel
 
 # Federico Marchetti - Personal Website
 
-A modern, vibecoded personal website built with Next.js 14, React Three Fiber, Chakra UI, and Contentlayer.
+A modern, vibecoded personal website built with Next.js 16, React Three Fiber, Chakra UI, and Contentlayer.
 
 ## 🚀 Features
 
@@ -14,7 +14,7 @@ A modern, vibecoded personal website built with Next.js 14, React Three Fiber, C
 - **MDX-Powered Blog** - Write blog posts in MDX with syntax highlighting
 - **Project Showcase** - Display your portfolio projects with rich media
 - **Dynamic Resume** - JSON-driven resume with automatic layout
-- **Contact Form** - React Hook Form with Zod validation
+- **Contact API** - `POST /api/contact` validates input with Zod (email delivery is still a TODO; no UI form exists yet)
 - **Dark Mode** - Full dark/light theme support with Chakra UI
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Accessibility** - WCAG compliant with reduced motion support
@@ -24,7 +24,7 @@ A modern, vibecoded personal website built with Next.js 14, React Three Fiber, C
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **Next.js 14** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **React 19** - Latest React with Server Components
 - **TypeScript** - Type-safe development
 - **Chakra UI** - Component library
@@ -49,7 +49,7 @@ A modern, vibecoded personal website built with Next.js 14, React Three Fiber, C
 git clone https://github.com/FedericoMarchetti2001/personal-website.git
 cd personal-website
 
-# Install dependencies
+# Install dependencies (.npmrc sets legacy-peer-deps because next-contentlayer peers on Next 12/13)
 npm install
 
 # Run development server
@@ -66,19 +66,20 @@ src/
 │   ├── blog/              # Blog pages
 │   ├── projects/          # Project pages
 │   ├── resume/            # Resume page
-│   ├── contact/           # Contact page
-│   └── api/               # API routes
+│   └── api/contact/       # Contact API route (Zod validation, email TODO)
 ├── components/            # React components
 │   ├── layout/           # Navbar, Footer
 │   ├── sections/         # Hero, About
 │   ├── motion/           # Framer Motion variants
-│   ├── three/            # R3F 3D components
-│   └── ui/               # Reusable UI components
+│   ├── blog/             # Blog UI (LinkedIn embed cards, navigation)
+│   └── three/            # R3F 3D components
+├── config/               # blogSources.ts
 ├── content/              # MDX content
-│   ├── blog/            # Blog posts
-│   └── projects/        # Project pages
+│   └── projects/        # Project pages (Contentlayer `Project`)
 ├── data/                # Static data
-│   └── resume.json      # Resume data
+│   ├── resume.json      # Resume data
+│   └── linkedinPosts.ts # LinkedIn posts shown on the blog page
+├── hooks/               # useBlogContent
 ├── lib/                 # Utilities
 │   ├── contentlayer.ts  # Content helpers
 │   ├── mdx.ts           # MDX components
@@ -93,7 +94,7 @@ src/
 
 ### Adding Blog Posts
 
-Create a new `.mdx` file in `src/content/blog/`:
+The `Blog` document type (`contentlayer.config.ts`) reads `src/content/blog/*.mdx`; that folder does not exist yet (old posts are in `archived-blog/`, not processed). Create a new `.mdx` file in `src/content/blog/`:
 
 ```mdx
 ---
@@ -183,6 +184,10 @@ npm i -g vercel
 vercel
 ```
 
+### Scripts
+
+`npm run dev` / `build` (both run `scripts/contentlayer-build.mjs` first), `start`, `lint` (`eslint .`), `type-check` (`tsc --noEmit`), `refresh` (regenerate Contentlayer output).
+
 ### Build Locally
 
 ```bash
@@ -199,7 +204,7 @@ npm start
 
 ## 🔧 Environment Variables
 
-Create a `.env.local` file:
+The code currently reads no environment variables. Planned/optional settings:
 
 ```env
 # Optional: Email service for contact form
