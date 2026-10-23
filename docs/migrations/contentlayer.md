@@ -12,7 +12,7 @@ Replace unmaintained Contentlayer with content-collections while keeping all con
   `src/lib/contentlayer.ts`, `src/lib/mdx.ts` (`useMDXComponent`), `src/hooks/useBlogContent.ts`, `src/app/sitemap.ts`,
   `src/app/blog/[slug]/{page,BlogPostClient}.tsx`, `src/app/projects/{ProjectsPageClient.tsx,[slug]/{page,ProjectPageClient}.tsx}`,
   `eslint.config.mjs` (ignore), `package.json`, `.gitignore`.
-- Content: `src/content/{blog,projects}`; currently 2 projects (`biblion.mdx`, `jgoth-validator.mdx`), see `src/content/blog`.
+- Content: `src/content/{blog,projects}`: 2 projects (`biblion.mdx`, `jgoth-validator.mdx`) and no blog posts (`src/content/blog` absent); the parity check must also cover the empty-blog case.
 - Open PRs: #1 (package.json, eslint.config.mjs, .npmrc, AI_CONTEXT.md), #2 (Scene.tsx), #3 (docs/config). Steps touching
   `package.json`/`eslint.config.mjs`/`src/aicontext/AI_CONTEXT.md` wait for #1 to merge.
 
